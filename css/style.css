@@ -1,0 +1,389 @@
+:root {
+    --main-color: #1e1a3c;
+    --secondary-color:  #FFB562;
+    --background-color: #f5f5f5;
+    --extra-color: #f1f3f4;
+    --main-transition: 0.5s;
+    --logo-size: 2.5em;
+    --h1-size: 2em;
+    --a-size: 0.68em;;
+
+}
+@media (max-width:767px) {
+    :root {
+        --logo-size: 1.375em;
+        --h1-size: 1.25em;
+    }
+}
+.special-heading {
+    font-size: var(--logo-size);
+    margin: 30px auto 60px;
+    width: fit-content;
+    position: relative;
+    padding: 0px 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.special-heading:hover {
+    color: white;
+}
+.special-heading::before, .special-heading::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 10px;
+    top: 0;
+    background-color: black;
+    z-index: -1;
+    transition: var(--main-transition);
+}
+.special-heading::before {
+    left: 0;
+}
+.special-heading::after {
+    right: 0;
+}
+.special-heading:hover:before, .special-heading:hover:after {
+    width: 52%;
+}
+.logo-mauritania {
+    position: fixed;
+    bottom: 10px;
+    right: 0;
+    width: 50px ;
+    height: 50px;
+    border-radius: 50%;
+}
+    /* From https://css.glass 
+background: rgba(255, 244, 245, 0.19);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(13.5px);
+-webkit-backdrop-filter: blur(13.5px);
+*/
+/** Start Glubal Rules **/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: 'Joan', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Tapestry', cursive;
+    font-family: 'Work Sans', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/** End Glubal Rules **/
+/** Start Header **/
+header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: var(--extra-color);
+    position: relative;
+}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .logo {
+    width: 300px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+header .logo h2 {
+    font-size: var(--logo-size);
+    text-transform: uppercase;
+    color: var(--logo-size);
+}
+header .links {
+    display: flex;
+    gap: 20px;
+}
+header .links a {
+    display: block;
+    color: #314042;
+    text-transform: uppercase;
+    font-size: var(--a-size);
+    padding: 5px 10px;
+    position: relative;
+    transition: .5s;
+    z-index: 1;
+}
+header .links .active {
+    color: gray;
+}
+header .links a:hover {
+    color: white;
+}
+header .links a::before {
+    content: "";
+    position: absolute;
+    background-color: var(--main-color);
+    height: 100%;
+    width: 2px;
+    left: 0;
+    top: 0;
+    transition: .5s;
+    z-index: -1;
+}
+header .links a:hover::before {
+    width: 100%;
+}
+header #check, .check-btn, .cart {
+    display: none;
+}
+.cart a {
+    font-size: 0.68em;
+    color: gray;
+}
+@media (max-width:991px) {
+    .check-btn, .cart  {
+        display: block;
+    }
+    header .links {
+        position: absolute;
+        top: 100%;
+        display: none;
+        flex-direction: column;
+    }
+    #check:checked ~ ul {
+        display: flex;
+    }
+}
+/** End Header **/
+/** START section **/
+.hero {
+    background-image: url(../images/pexels-pixabay-325876.jpg);
+    background-size: cover;
+    background-position: center ;
+    background-repeat: no-repeat;
+    height: calc(100vh - 56px);
+    display: flex;
+    align-items: center;
+}
+.hero .info {
+    color: white;
+    width: 400px;
+    backdrop-filter: blur(15px);
+    --webkit-backdrop-filter: blur(15px);
+    margin-left: 50px;
+    text-align: center;
+    padding: 20px;
+}
+.hero .info h1 {
+    color: var(--main-color);
+    font-size: 32px;
+}
+.hero .info a {
+    display: block;
+    background-color: var(--main-color);
+    color: white;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    transition: var(--main-transition);
+}
+.hero .info a:hover {
+    transform: scale(.95);
+}
+@media (max-width:767px) {
+    .hero .info {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+/** End section **/
+/** Start main**/
+main .gridien{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 10px;
+}
+@media (max-width:991px) {
+    main .gridien {
+        grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
+        gap: 5px;
+    }
+}
+
+main .box {
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-bottom: 2.78em;
+    overflow: hidden;
+    transition: var(--main-transition);
+    margin-bottom: 1.875em;
+}
+main .box img {
+    max-width: 100%;
+}
+main .box:hover  {
+    transform: scale(.9);
+}
+main .box h3 {
+    font-size: 1em;
+    color: black;
+    font-weight: normal;
+    padding: 10px 5px;
+}
+main .box .info {
+    position: absolute;
+    bottom: -100%;
+    transition: var(--main-transition);
+}
+main .box:hover .info {
+    bottom: 0;
+}
+main .box span {
+    font-size: 0.875em;
+    display: block;
+    margin-bottom: 10px;
+    color: black
+}
+main .box ul {
+    display: flex;
+    gap: 5px;
+}
+main .box ul a {
+    display: block;
+    color: black;
+    font-size: var(--a-size);
+    transition: var(--main-transition);
+}
+main .box ul a:hover {
+    color: gray;
+}
+.icon-skills {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 100px;
+}
+@media (max-width:767px) {
+    .icon-skills {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+.icon-skills img {
+    max-width: 100%;
+    width: 60px;
+}
+footer {
+    background-color: var(--main-color);
+}
+footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+footer ul li {
+    line-height: 1.8;
+}
+footer ul a {
+    color: white;
+    margin: 5px;
+}
+footer .carte {
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    gap: 10px;
+}
+footer .carte img {
+    width: 30px;
+}
+footer p {
+    color: white;
+    margin-bottom: 30px;
+    
+}
+footer .inpt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer .inpt input {
+    background-color: transparent;
+    border: 1px solid white;
+    outline: none;
+    padding: 4px 8px;
+    caret-color: white;
+}
+footer .inpt i {
+    border: 1px solid white;
+    padding: 4px 8px;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+footer .copyright {
+    padding: 10px;
+    background-color: var(--extra-color);
+    text-align: center;
+    font-size: 14px;
+    color: var(--main-color);
+}
+@media(max-width:767px) {
+    footer .container {
+        flex-direction: column;
+    }
+    footer ul {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    footer .carte {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        justify-content: space-evenly;
+    }
+    footer p {
+        margin-bottom: 10px;
+        text-align: center;
+    } 
+}
+/** End main **/
+
